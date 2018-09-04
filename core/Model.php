@@ -1,77 +1,105 @@
 <?php 
  
-// namespace library\Model; 
 
-abstract class Model {
+namespace Core; 
+
+require('Connection.php');
+require('config.php');
+
+use Core\Connection;
+use Core\Config;
+
+class Model {
 
     // define  a table
-    protected $table;
+    protected $table = "";
 
-    protected $column = '*';
 
-    private $whereClause = '';
+    public $_mysqli;
 
-    // function for query select
-    public function select($param = '*')
-    {   
-        if($param == '*')
-        {
-            die(var_dump('function <b> with </b> not have a parameter'));
+    protected $_column = '*';
+    protected $_order = 'ORDER BY';
+
+    protected $_whereClause = '';
+
+    private  $_connection;
+    private  $_instance; // the single instance
+
+    // private $env;
+
+
+    /**
+     * Get an Instance of the database
+     * @return Instance
+     */
+    public function getInstance(){
+        if(!$this->_instance){
+            $this->_instance = new self();
         }
-        
 
-        if(is_array($param))
-        {
-            foreach($param as $key){
-                if($this->column == '*')
-                {
-                    $this->column = $key;
-                }else{
-                    $this->column =  $this->column . ', ' . $key;
+        return $this->_instance;
+    }
+
+    // construct
+    public function __construct(){
+        if($this->table == null){
+            $className = substr(get_called_class(), strrpos(get_called_class(), '\\') + 1);
+
+            $this->table = strtolower($className . 's');
+        }
+
+        $this->_connection = new \mysqli(config('DB_HOST'), config('DB_USER'), 
+            config('DB_PASS'), config('DB_NAME'));
+	
+		// Error handling
+		if(mysqli_connect_error()) {
+			trigger_error("Failed to conencto to MySQL: " . mysql_connect_error(),
+				 E_USER_ERROR);
+		}
+
+    }
+
+    public function all(){
+        return $this->_connection->query('SELECT * FROM users')->fetch_all();
+    }
+
+    /**
+     * func for select column
+     */
+    public function select($arr){
+        $this->_column = "";
+
+        if(is_array($arr)){
+
+            foreach($arr as $key){
+                if($key != end($arr)){
+                    $this->_column .= $key . ', ';
                 }
-    
+                else if($key == end($arr)){
+                    $this->_column .= $key;
+                }    
             }
+
         }else{
-            $this->column = $param;
+            $this->_column .= $arr;
         }
-        
+
 
         return $this;
     }
 
-    // where clause 
-    public function where($data){
-        if(is_array($data)){
-
-        }else{
-            $this->whereClause = 'WHERE' . $data;
-        }
-
+    public function where($arg){
         return $this;
-    }   
-
-
-    public function get()
-    {
-        $sql = "SELECT " . $this->column . " FORM " . $this->table . ' ' . $this->whereClause;
-
-        return $sql;
     }
 
-    public function create(array $data){
-        $col = '';
-        $val = '';
+    public function get(){
 
-        foreach ($data as $key => $value) {
-            $col = $col . $key . ', ';
-            $val = $val . $value . ', ';
-        }
+        $query = "SELECT {$this->_column} FROM {$this->table}";
 
-        $query = "INSERT INTO " . $this->table 
-                    . ' ('. $col .') VALUES (' .$val .')';
+        $data = $this->_connection->query($query)->fetch_all();
 
-        return $query;
-
+        return $data;
     }
+
 
 }

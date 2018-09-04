@@ -1,15 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 <?php 
 
-require('core/Model.php');
+$DIR_NAME = __DIR__;
 
-// use library\Model as Model;
+require('app/model/User.php');
 
-Class User extends Model {
-    protected $table = "users";
-}
+use App\Model\User;
+
+
+    echo "<br> <br>";
+
+    $data = new User;
     
-    $obj = new User;
-    $getData = $obj->select(['name','email'])->where('id = ' . 1)->get();
-    
-    // print_r($getData);
-        echo $getData;
+    $data = $data->all();  
+    var_dump($data);  
+
+
+?>
