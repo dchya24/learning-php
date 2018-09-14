@@ -7,21 +7,31 @@
     <title>Document</title>
 </head>
 <body>
+
 <?php 
+
+// var_dump(mcrypt_list_algorithms());
+// var_dump(mcrypt_list_modes());
 
 $DIR_NAME = __DIR__;
 
 require('app/model/User.php');
+require('core/Crypto.php');
 
-use App\Model\User;
+use core\Crypto;
 
+// $data = "this is string";
 
-    echo "<br> <br>";
+$data = [
+    'array', 'data', 'string', 
+];
 
-    $data = new User;
-    
-    $data = $data->all();  
-    var_dump($data);  
+$crypto = new Crypto;
+$crypt_data = $crypto->encrypt($data);
 
+var_dump($crypt_data);
+
+$encrypt_data = $crypto->decrypt($crypt_data);
+var_dump($encrypt_data);
 
 ?>
