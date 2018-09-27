@@ -42,7 +42,12 @@ class Crypto {
 
         $decrypt = explode('array_type', trim($decrypt));
 
-        return $decrypt[0];
+        if(count($decrypt) == 2) {
+            return unserialize($decrypt[0]);
+        }
+        else{
+            return $decrypt[0];
+        }
     }
 
 }
