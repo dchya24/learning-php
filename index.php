@@ -1,37 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
 <?php 
 
-// var_dump(mcrypt_list_algorithms());
-// var_dump(mcrypt_list_modes());
-
-$DIR_NAME = __DIR__;
-
-require('app/model/User.php');
+require('app/models/User.php');
 require('core/Crypto.php');
 
-use core\Crypto;
+// var_dump($_SERVER);
+use App\Model\User;
+use Core\Crypto;
 
-// $data = "this is string";
-
-$data = [
-    'array', 'data', 'string', 
-];
+$user = new User;
+$data = $user->where(['id', '=',2])->get();
 
 $crypto = new Crypto;
-$crypt_data = $crypto->encrypt($data);
 
-var_dump($crypt_data);
+$encrypt = $crypto->encrypt($data);
+var_dump($encrypt);
 
-$encrypt_data = $crypto->decrypt($crypt_data);
-var_dump($encrypt_data);
+$decrypt = $crypto->decrypt($encrypt);
 
-?>
+
+var_dump($decrypt);
+
+
