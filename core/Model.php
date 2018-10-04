@@ -62,7 +62,6 @@ class Model {
      */
     public function all(){
         return $this->_connection->query("SELECT * FROM {$this->table}")->fetch_all();
-        // return "SELECT * FROM {$this->table}";
     }
 
     /**
@@ -71,7 +70,7 @@ class Model {
      * @param array 
      * except (['id', 'name'])
      * or
-     * @param string except ('name)
+     * @param string except ('name')
      */
     public function select($arr = '*'){
         $this->_column = "";
@@ -107,7 +106,6 @@ class Model {
             $this->makeWhere($arg, " AND");
         }
 
-        // return (array_search($arg[1], $this->_operator));
         return $this;
     }
 
