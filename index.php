@@ -9,19 +9,15 @@
 <body>
 <?php 
 
-$DIR_NAME = __DIR__;
+require_once __DIR__ . '/vendor/autoload.php';
 
-require('app/model/User.php');
+use Core\Router;
 
-use App\Model\User;
+$route = new Router;
 
+$route->add('/home/url/{id}', ['controller' => 'HomeController', 'action' => 'index']);
+$route->add('/home/url', ['controller' => 'HomeController', 'action' => 'index']);
 
-    echo "<br> <br>";
-
-    $data = new User;
-    
-    $data = $data->all();  
-    var_dump($data);  
-
+$route->dispatch($_SERVER['REQUEST_URI']);
 
 ?>
