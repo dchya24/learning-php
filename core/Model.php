@@ -3,11 +3,8 @@
 
 namespace Core; 
 
-require('Connection.php');
-require('config.php');
 
 use Core\Connection;
-use Core\Config;
 
 class Model {
 

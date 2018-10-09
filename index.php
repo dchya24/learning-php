@@ -1,23 +1,13 @@
 <?php 
 
-require('app/models/User.php');
-require('core/Crypto.php');
+require_once __DIR__ . '/vendor/autoload.php';
 
-// var_dump($_SERVER);
-use App\Model\User;
-use Core\Crypto;
+use Core\Router;
 
-$user = new User;
-$data = $user->where(['id', '=',2])->get();
+$route = new Router;
 
-$crypto = new Crypto;
+$route->add('/home/url/{id}', ['controller' => 'HomeController', 'action' => 'index']);
+$route->add('/home/url', ['controller' => 'HomeController', 'action' => 'index']);
 
-$encrypt = $crypto->encrypt($data);
-var_dump($encrypt);
-
-$decrypt = $crypto->decrypt($encrypt);
-
-
-var_dump($decrypt);
-
+$route->dispatch($_SERVER['REQUEST_URI']);
 
