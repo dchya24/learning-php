@@ -1,18 +1,10 @@
 {
     "name": "dchya24/belajar_php",
-    "description": "learning php",
-    "type": "project",
-    "authors": [
-        {
-            "name": "dchya24",
-            "email": "cahyadinar241@gmail.com"
-        }
-    ],
     "require": {},
     "autoload": {
         "psr-4": {
-            "Core\\" : "Core/",
-            "App\\" : "App"
+            "App\\" : "app/",
+            "Core\\" : "core/"
         }
     }
 }
