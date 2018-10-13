@@ -7,7 +7,7 @@ namespace Core;
  * 
  */
 
- class Error {
+class Error {
      /**
       * Error handler. Convert all erros to Exceptions by trhowing an ErrorException
       *
@@ -38,9 +38,10 @@ namespace Core;
         if($code != 404) {
             $code = 500;
         }
-        http_response_code($code);
 
-        if(config('SHOW_ERRORS')) {
+        // http_response_code($code);
+
+        if(getenv('SHOW_ERRORS') === 'true') {
             echo "<h1> Fatal Error </h1>";
             echo "<p> Uncaught exception: '". get_class($exception) ."'</p>";
             echo "<p> Message: '" . $exception->getMessage() . "'</p>";
@@ -48,8 +49,8 @@ namespace Core;
             echo "<p> Throw in '" .  $exception->getFile() ."' on line " . $exception->getLine() . "</p>";
 
         } else {
-            $log = dir_name(__DIR__) . '/logs/' . date('Y-m-d') . '.txt';
-            init_set('error_log', $log);
+            $log = dirname(__DIR__) . '/logs/' . date('Y-m-d') . '.txt';
+            ini_set('error_log', $log);
 
             $message = "Uncaught exception: '" . get_class($exception) . "'";
             $message .= " with message '" . $exception->getMessage() . "'";
@@ -57,7 +58,6 @@ namespace Core;
             $message .= "\nThrown in '" . $exception->getFile() . "' on line " . $exception->getLine();
             
             error_log($message);
-
             
         }
     }     

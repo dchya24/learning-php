@@ -1,10 +1,14 @@
-DB_NAME=belajar_php
+[Database]
+
+DB_NAME=
 DB_PORT= 
 DB_HOST=localhost
 DB_USER=root
 DB_PASS= 
 DB_TYPE=mysql
+
+[Application]
 APP_NAME=Cerita
-APP_FILE=laporan_pkl
+APP_FILE=laporan pkl
 APP_TYPE=development
-SHOW_ERRORS=false
+SHOW_ERRORS=true

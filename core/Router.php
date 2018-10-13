@@ -111,15 +111,11 @@ Class Router
                 $action = $helper->convertToCamelCase($action);
 
                 if(preg_match('/action$/i', $action) ==0) {
-                    try {
-                        $controller_object->$action();
-                    } catch(\Exception $e) {
-                        ("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
-                    }
+                    $controller_object->$action();
                 }
-                // else {
-                //     throw new \Exception("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
-                // }
+                else {
+                    throw new \Exception("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
+                }
             } 
             else{ 
                 throw  new \Exception("Controller class $controller not found!");
