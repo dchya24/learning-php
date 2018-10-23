@@ -49,7 +49,7 @@ class Error {
             echo "<p> Throw in '" .  $exception->getFile() ."' on line " . $exception->getLine() . "</p>";
 
         } else {
-            $log = dirname(__DIR__) . '/logs/' . date('Y-m-d') . '.txt';
+            $log = dirname(__DIR__) . '/resources/logs' . date('Y-m-d') . '.txt';
             ini_set('error_log', $log);
 
             $message = "Uncaught exception: '" . get_class($exception) . "'";

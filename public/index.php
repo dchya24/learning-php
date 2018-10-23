@@ -22,8 +22,7 @@ $env->load($data[0] . '.config');
 
 $route = new Router;
 
-$route->add('/home/url/{id}', ['controller' => 'HomeController', 'action' => 'index']);
+$route->add('/', ['controller' => 'HomeController', 'action' => 'index']);
 $route->add('/home/url', ['controller' => 'HomeController', 'action' => 'index']);
 
 $route->dispatch($_SERVER['REQUEST_URI']);
-

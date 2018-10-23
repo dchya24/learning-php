@@ -1,6 +1,8 @@
 {
     "name": "dchya24/belajar_php",
-    "require": {},
+    "require": {
+        "twig/twig" : "^2.5"
+    },
     "autoload": {
         "psr-4": {
             "App\\" : "app/",

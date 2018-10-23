@@ -1,0 +1,53 @@
+[18-Oct-2018 04:45:33 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined variable: twi'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\core\View.php(22): Core\Error::errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 22, Array)
+#1 C:\xampp\htdocs\belajar_php\app\controllers\HomeController.php(9): Core\View::renderTemplate('home.html')
+#2 C:\xampp\htdocs\belajar_php\core\Router.php(114): App\Controllers\HomeController->index()
+#3 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/')
+#4 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\View.php' on line 22
+[18-Oct-2018 04:47:07 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined variable: readable'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\core\View.php(12): Core\Error::errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12, Array)
+#1 C:\xampp\htdocs\belajar_php\app\controllers\HomeController.php(9): Core\View::render('home.html')
+#2 C:\xampp\htdocs\belajar_php\core\Router.php(114): App\Controllers\HomeController->index()
+#3 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/')
+#4 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\View.php' on line 12
+[18-Oct-2018 04:47:25 Europe/Berlin] Uncaught exception: 'Error' with message 'Call to undefined function Core\readable()'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\app\controllers\HomeController.php(9): Core\View::render('home.html')
+#1 C:\xampp\htdocs\belajar_php\core\Router.php(114): App\Controllers\HomeController->index()
+#2 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/')
+#3 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\View.php' on line 12
+[18-Oct-2018 08:31:48 Europe/Berlin] Uncaught exception: 'Exception' with message 'No Route Matched'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(29): Core\Router->dispatch('/belajar_php/pu...')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\Router.php' on line 125
+[18-Oct-2018 08:32:07 Europe/Berlin] Uncaught exception: 'Exception' with message 'No Route Matched'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/belajar_php/pu...')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\Router.php' on line 125
+[18-Oct-2018 08:32:59 Europe/Berlin] Uncaught exception: 'Exception' with message 'No Route Matched'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/belajar_php/pu...')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\Router.php' on line 125
+[18-Oct-2018 08:33:07 Europe/Berlin] Uncaught exception: 'Exception' with message 'No Route Matched'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/belajar_php/pu...')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\Router.php' on line 125
+[18-Oct-2018 08:33:26 Europe/Berlin] Uncaught exception: 'Exception' with message 'No Route Matched'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/belajar_php/pu...')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\Router.php' on line 125
+[18-Oct-2018 08:33:50 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'dirname() expects parameter 1 to be string, array given'
+Stack trace: #0 [internal function]: Core\Error::errorHandler(2, 'dirname() expec...', 'C:\\xampp\\htdocs...', 13, Array)
+#1 C:\xampp\htdocs\belajar_php\public\index.php(13): dirname(Array)
+#2 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\public\index.php' on line 13
+[18-Oct-2018 08:35:23 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined variable: data'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\resources\views\home.html(18): Core\Error::errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 18, Array)
+#1 C:\xampp\htdocs\belajar_php\core\View.php(13): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\belajar_php\app\controllers\HomeController.php(9): Core\View::render('home.html')
+#3 C:\xampp\htdocs\belajar_php\core\Router.php(114): App\Controllers\HomeController->index()
+#4 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/')
+#5 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\resources\views\home.html' on line 18
