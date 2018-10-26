@@ -6,6 +6,6 @@ use Core\View;
 
 class HomeController {
     public function index(){
-        View::render('home.html', ['data' => 'data aku']);
+        View::renderTemplate('home.html', ['data' => 'data aku']);
     }
 }

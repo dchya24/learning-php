@@ -1,0 +1,25 @@
+[26-Oct-2018 02:33:39 Europe/Berlin] Uncaught exception: 'Exception' with message 'No Route Matched'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(28): Core\Router->dispatch('/belajar_php/pu...')
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\core\Router.php' on line 125
+[26-Oct-2018 02:52:41 Europe/Berlin] Uncaught exception: 'Error' with message 'Call to undefined function url()'
+Stack trace: #0 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\public\index.php' on line 20
+[26-Oct-2018 02:53:45 Europe/Berlin] Uncaught exception: 'Error' with message 'Call to undefined function url()'
+Stack trace: #0 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\public\index.php' on line 20
+[26-Oct-2018 02:54:34 Europe/Berlin] Uncaught exception: 'Error' with message 'Call to undefined function url()'
+Stack trace: #0 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\public\index.php' on line 21
+[26-Oct-2018 02:55:01 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined variable: data'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(23): Core\Error::errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 23, Array)
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\public\index.php' on line 23
+[26-Oct-2018 02:55:53 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined variable: data'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(24): Core\Error::errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\public\index.php' on line 24
+[26-Oct-2018 02:56:45 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined variable: data'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\public\index.php(24): Core\Error::errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 24, Array)
+#1 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\public\index.php' on line 24

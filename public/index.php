@@ -2,6 +2,9 @@
 
 
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../core/Url.php';
+
+define('BASE_URL',__DIR__);
 
 /**
  * Error Reporting
@@ -14,15 +17,15 @@ set_exception_handler('Core\Error::exceptionHandler');
 
 use Core\Router;
 use Symfony\Component\Dotenv\Dotenv;
-
 $data = explode('public', __DIR__);
 
 $env = new Dotenv();
 $env->load($data[0] . '.config');
+// die(var_dump(url('css')));
 
 $route = new Router;
 
-$route->add('/', ['controller' => 'HomeController', 'action' => 'index']);
-$route->add('/home/url', ['controller' => 'HomeController', 'action' => 'index']);
+$route->add('', ['controller' => 'HomeController', 'action' => 'index']);
+$route->add('home/url', ['controller' => 'HomeController', 'action' => 'index']);
 
-$route->dispatch($_SERVER['REQUEST_URI']);
+$route->dispatch($_SERVER['QUERY_STRING']);
