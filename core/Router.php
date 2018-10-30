@@ -101,17 +101,22 @@ Class Router
 
         if($this->match($url)){
             $controller = $this->params['controller'];
+            
             $controller = $helper->convertToStudlyCaps($controller);
             $controller = $this->getNamespace() . $controller;
 
             if(class_exists($controller)){
                 $controller_object = new $controller($this->params);
-                
+
                 $action = $this->params['action'];
                 $action = $helper->convertToCamelCase($action);
 
                 if(preg_match('/action$/i', $action) ==0) {
-                    $controller_object->$action();
+                    if(array_key_exists("key", $this->params)){
+                        $controller_object->$action($this->params['key']);                        
+                    }else{
+                        $controller_object->$action();
+                    }
                 }
                 else {
                     throw new \Exception("Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method");
