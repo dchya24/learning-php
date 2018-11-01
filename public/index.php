@@ -1,8 +1,9 @@
 <?php 
-
+session_start();
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../core/Url.php';
+require_once __DIR__ . '/../core/config.php';
 
 define('BASE_URL',__DIR__);
 
@@ -19,13 +20,17 @@ use Core\Router;
 use Symfony\Component\Dotenv\Dotenv;
 $data = explode('public', __DIR__);
 
-
 $env = new Dotenv();
 $env->load($data[0] . '.config');
 
 $route = new Router;
 
-$route->add('home/url', ['controller' => 'HomeController', 'action' => 'noParams']);
-$route->add('home/url/{id:\d+}', ['controller' => 'HomeController', 'action' => 'index']);
+$route->add('dashboard', ['controller' => 'HomeController', 'action' => 'dashboard']);
+$route->add('upload', ['controller' => 'HomeController', 'action' => 'upload']);
+
+$route->add('login', ['controller' => 'LoginController', 'action' => 'login']);
+$route->add('register', ['controller' => 'LoginController', 'action' => 'register']);
+$route->add('api/post/login', ['controller' => 'LoginController', 'action' => 'postLogin']);
+$route->add('api/post/register', ['controller' => 'LoginController', 'action' => 'postRegister']);
 
 $route->dispatch($_SERVER['QUERY_STRING']);

@@ -11,7 +11,7 @@ class Model {
     // define  a table
     protected $table = "";
 
-
+    protected $fillable = [];
     public $_mysqli;
 
     /**
@@ -97,7 +97,7 @@ class Model {
     }
 
     public function where(array $arg){
-        if($this->_whereClause == null){
+        if($this->_whereClause == ""){
             $this->makeWhere($arg, "WHERE");
         }else{
             $this->makeWhere($arg, " AND");
@@ -107,16 +107,16 @@ class Model {
     }
 
     private function  makeWhere(array $arg, string $string) {
-        if(count($arg)){
+        if(count($arg) > 2){
             if(!empty(array_search($arg[1], $this->_operator)) ){
                 if($arg[1] == "LIKE"){
                     $this->_whereClause .= "$string {$arg[0]} {$arg[1]} '%{$arg[2]}%'";                    
                 }else{
-                    $this->_whereClause .= "$string {$arg[0]} {$arg[1]} {$arg[2]}";
+                    $this->_whereClause .= "$string {$arg[0]} {$arg[1]} '{$arg[2]}'";
                 }
             }   
         }else{
-            $this->_whereClause .= "WHERE {$arg[0]} = {$arg[1]}";
+            $this->_whereClause .= "WHERE {$arg[0]} = '{$arg[1]}'";
         }
     }
 
@@ -127,21 +127,45 @@ class Model {
 
         $this->_query = "$this->_query FROM $this->table $this->_whereClause";
 
-        $data = $this->_connection->query($this->_query)->fetch_all();
+        $data = $this->_connection->query($this->_query);
 
-        return $data;
+        return mysqli_fetch_assoc($data);
+    }
+
+    public function first(){
+
+        $this->_query = "$this->_query FROM $this->table $this->_whereClause limit 1";
+
+        $data = $this->_connection->query($this->_query);
+
+        return mysqli_fetch_assoc($data);
     }
 
     public function find($param){
         $query = "SELECT * FROM {$this->table} WHERE {$this->primaryKey} ".'='. " $param LIMIT 1";
 
-        $data = $this->_connection->query($query)->fetch_all();
+        $data = $this->_connection->query($query);
 
-        return $data[0];
+        return mysqli_fetch_assoc($data);
     }
 
     public function insert(array $array){
+        $column = "";
+        $value = "";
+        foreach($array as $key => $val) {
+            if(end($array) != $val) {
+                $column .= "$key,";
+                $value.= "'$val',";
+            }else {
+                $column .= "$key";
+                $value .= "'$val'";
+            }
+        }
+
+        $query = "INSERT INTO $this->table($column) values($value)";
+        $sql = $this->_connection->query($query);
         
+        return $sql;
     }
 
 }
