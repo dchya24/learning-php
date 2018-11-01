@@ -33,4 +33,9 @@ $route->add('register', ['controller' => 'LoginController', 'action' => 'registe
 $route->add('api/post/login', ['controller' => 'LoginController', 'action' => 'postLogin']);
 $route->add('api/post/register', ['controller' => 'LoginController', 'action' => 'postRegister']);
 
+$route->add('api/post/upload', ['controller' => 'HomeController', 'action' => 'postUpload']);
+$route->add('api/post/delete', ['controller' => "HomeController", "action" => "delete"]);
+
+$route->add("logout", ["controller" => "HomeController", "action" => "logout"]);
+
 $route->dispatch($_SERVER['QUERY_STRING']);
