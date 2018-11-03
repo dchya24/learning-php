@@ -16,7 +16,7 @@
     <?php 
         if(array_key_exists('message', $_SESSION)) {
             echo $_SESSION['message'];
-            session_unregister($SESSION['message']);
+            unset($_SESSION['message']);
         }
     ?>
 </body>

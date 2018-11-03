@@ -102,14 +102,14 @@ Class Router
         if($this->match($url)){
             $controller = $this->params['controller'];
             
-            $controller = $helper->convertToStudlyCaps($controller);
+            $controller = Helper::convertToStudlyCaps($controller);
             $controller = $this->getNamespace() . $controller;
 
             if(class_exists($controller)){
                 $controller_object = new $controller($this->params);
 
                 $action = $this->params['action'];
-                $action = $helper->convertToCamelCase($action);
+                $action = Helper::convertToCamelCase($action);
 
                 if(preg_match('/action$/i', $action) ==0) {
                     if(array_key_exists("key", $this->params)){

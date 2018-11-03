@@ -141,8 +141,9 @@ class Model {
         return mysqli_fetch_assoc($data);
     }
 
+
     public function find($param){
-        $query = "SELECT * FROM {$this->table} WHERE {$this->primaryKey} ".'='. " $param LIMIT 1";
+        $query = "SELECT * FROM {$this->table} WHERE {$this->primaryKey} ".'='. " '$param' LIMIT 1";
 
         $data = $this->_connection->query($query);
 
@@ -166,6 +167,14 @@ class Model {
         $sql = $this->_connection->query($query);
         
         return $sql;
+    }
+
+    public function destroy($param){
+        $query = "DELETE FROM {$this->table} WHERE {$this->primaryKey} ".'='. " '$param'";
+
+        $data = $this->_connection->query($query);
+
+        return $data;
     }
 
 }

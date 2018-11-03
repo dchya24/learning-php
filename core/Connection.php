@@ -2,11 +2,13 @@
     
 namespace Core; 
 
+// $DB = new \mysqli(config('DB_HOST').':'.config('DB_PORT'), config('DB_USER'), 
+// config('DB_PASS'), config('DB_NAME'));
 
 class Connection
 {
     
-
+    private $_connection;
     /*
     * Get Instance of the Database
     @return Instance
@@ -25,8 +27,8 @@ class Connection
     {
         $conf = parse_ini_file(__DIR__ . '/../.config');
 
-        $this->__connection = new \mysqli($conf['DB_HOST'], $conf['DB_USER'], 
-                            $conf['DB_PASS'], $conf['DB_NAME']);
+        $this->_connection = new \mysqli(config('DB_HOST').':'.config('DB_PORT'), config('DB_USER'), 
+        config('DB_PASS'), config('DB_NAME'));
 
         // error handling
         if(mysqli_connect_error()){
@@ -36,9 +38,12 @@ class Connection
 
     private function __clone() { }
 
-    public function getConnection(){
-        return $this->_connection;
-    }   
+    public static function querySelect($string){
+        $inst = new self();
+        $query = $inst->_connection->query($string);
+
+        return $query;
+    }
 }
 
 ?>

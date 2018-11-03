@@ -26,6 +26,8 @@ function base_url(){
     }
 }
 
+function url($link) { return base_url() . $link; }
+
 function redirect($url) {
     header('Location: '. $url);
 }
