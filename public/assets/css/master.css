@@ -1,0 +1,236 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    width: 15%;
+    background: #F44336;
+    height: 100vh;
+    float:left;
+    box-shadow: 1px 0 4px #212121;
+}
+
+.sidebar a {
+    display: block;
+    color: #212121;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #212121;
+}
+
+.sidebar a:hover {
+    background: #D32F2F;
+}
+
+
+.sidebar .logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #212121;
+    background: #D32F2F;
+
+}
+
+.sidebar .user {
+    display: block;
+    color: #212121;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #212121;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.content {
+    width: 85%;
+    float:right;
+}
+
+.content .header{ 
+    background: #F44336;
+    width : 100%; 
+    display: flex;
+}
+
+.content .header .panjang {
+    width: 80%;
+    display: inline-block;
+    border: none;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0,0,0,0);
+    overflow: hidden;
+    position: relative;
+    
+
+}
+
+.content .header .logout {
+    width: 20%;
+    text-align: center;
+    font-size: 1.7rem;
+    padding: 0.5rem 0;
+    border-left: 1px solid #212121;
+    background: #D32F2F;
+    text-decoration: none;color: #000;
+}
+
+.content .isi {
+    width: 100%;
+    padding: 1rem 0.7rem;
+}
+
+.panjang:before {
+    content: "";
+    position: absolute;
+    left:0;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
+    background: #D32F2F;
+    height: 1rem;
+}
+
+.isi .__header {
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    padding: 0.5rem;
+}
+
+.isi .__content {
+    overflow-y: scroll;
+    height: 420px;
+}
+
+.__header form {
+    width: 100%;
+    /* display: flex; */
+}
+
+.__header form .form-input {
+    width: 50%;
+    display: inline-block;
+    float:left;
+}
+
+
+.__header form .form-input input, .__header form .form-input select{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.form button {
+    cursor: pointer;
+    /* width: 3%; */
+    margin-top: 0.5rem;   
+    padding: 0.3rem 0.7rem;
+    font-size: 0.9rem;
+    text-align: center;
+    background: #F44336;
+    border: none;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0,0,0,0);
+    overflow: hidden;
+    position: relative;
+}
+
+.form button:before{
+    content: "";
+    position: absolute;
+    left: 51%;
+    z-index: -1;
+    right: 51%;
+    bottom: 0;
+    background: #448AFF;
+    height: 4px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.form button:hover:before, .form button:focus:before, .form button:active:before {
+    left: 0;
+    right: 0;
+}
+
+.isi .__content::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.isi .__content::-webkit-scrollbar
+{
+	width: 6px;
+	/* background-color: #F5F5F5; */
+}
+
+.isi .__content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #BDBDBD;
+}
+
+.pagination {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+.pagination a{
+    color: #333;
+    float: left;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination a.active {
+    background: #448AFF;
+}
+
+.pagination a:hover:not(.active) {
+    background: rgb(56, 122, 238);
+}
+
+.card {
+    width: 23%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    float: left;
+    margin: 0 0.5rem;
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card .container {
+    padding: 1rem 16px;
+}
+
+.card img {
+    width: 100%;
+    height: 100px;
+}

@@ -39,7 +39,7 @@ class LoginController extends Controller {
                 redirect_back();
             }else{
                 $_SESSION['message'] = [
-                    "status" => "error",
+                    "status" => "danger",
                     "message" => "password salah"
                 ];
     
@@ -48,7 +48,7 @@ class LoginController extends Controller {
         }
         else{
             $_SESSION['message'] = [
-                "status" => "error",
+                "status" => "danger",
                 "message" => "User dengan email ini tidak ada"
             ];
 
@@ -72,7 +72,10 @@ class LoginController extends Controller {
                 ]);
 
         if($data) {
-            $_SESSION['message'] = "Berhasil Mendaftar";
+            $_SESSION['message'] = [
+                "status" => "success",
+                "message" => "Berhasil mendaftar"
+            ];
 
             redirect_back();
         }

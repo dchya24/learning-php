@@ -44,6 +44,13 @@ class Connection
 
         return $query;
     }
+
+    public static function queryInsert($string){
+        $inst = new self();
+        $query = $inst->_connection->query($string);
+
+        return $query;
+    }
 }
 
 ?>

@@ -1,0 +1,16 @@
+[05-Nov-2018 13:13:24 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined index: user'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\resources\views\home.blade.php(36): Core\Error::errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 36, Array)
+#1 C:\xampp\htdocs\belajar_php\core\View.php(13): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\belajar_php\app\controllers\HomeController.php(52): Core\View::render('home', Array)
+#3 C:\xampp\htdocs\belajar_php\core\Router.php(118): App\Controllers\HomeController->dashboard()
+#4 C:\xampp\htdocs\belajar_php\public\index.php(45): Core\Router->dispatch('dashboard')
+#5 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\resources\views\home.blade.php' on line 36
+[05-Nov-2018 13:13:25 Europe/Berlin] Uncaught exception: 'ErrorException' with message 'Undefined index: user'
+Stack trace: #0 C:\xampp\htdocs\belajar_php\resources\views\home.blade.php(36): Core\Error::errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 36, Array)
+#1 C:\xampp\htdocs\belajar_php\core\View.php(13): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\belajar_php\app\controllers\HomeController.php(52): Core\View::render('home', Array)
+#3 C:\xampp\htdocs\belajar_php\core\Router.php(118): App\Controllers\HomeController->dashboard()
+#4 C:\xampp\htdocs\belajar_php\public\index.php(45): Core\Router->dispatch('dashboard')
+#5 {main}
+Thrown in 'C:\xampp\htdocs\belajar_php\resources\views\home.blade.php' on line 36
