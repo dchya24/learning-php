@@ -137,11 +137,6 @@ class HomeController {
         extract($_POST);
         $query = "UPDATE users SET name='$name'";
 
-        if($password != ""){
-            $query .= ", password='" . password_hash($password, PASSWORD_BCRYPT) . "'";
-
-        }
-
         $query .= " WHERE id=" . $_SESSION['user']['id'];
 
         $sql = Connection::querySelect($query);
@@ -151,6 +146,7 @@ class HomeController {
                 "status" => "success",
                 "message" => "Berhasil Update account"
             ];
+            $_SESSION['user']['name'] = $name;
         }else {
             $_SESSION['message'] = [
                 "status" => "danger",

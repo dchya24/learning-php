@@ -23,6 +23,7 @@
     <title> Dashobard | <?php echo config('APP_NAME'); ?> </title>
     <link rel="stylesheet" href="<?php echo url('assets/css/master.css'); ?>" >
     <link rel="stylesheet" href="<?php echo url('assets/css/style.css'); ?>" >
+    <link rel="stylesheet" href="<?php echo url('assets/font-awesome-4.7.0/css/font-awesome.min.css'); ?>" >
     <style>
         .alert {
             position: fixed;
@@ -48,17 +49,20 @@
     ?>
     <div class="sidebar">
         <div class="logo"> Arsip</div>
-        <div class="user"> <?php echo $_SESSION['user']['name']; ?></div>
-        <a href="<?php echo url("dashboard"); ?>">Home </a>
-        <a href="<?php echo url("upload"); ?>"> Upload</a>
-        <a href="<?php echo url("settings"); ?>"> Settings</a>
+        <div class="user"> 
+            <i class="fa fa-user-circle-o fa-3x"></i> <br>
+            <?php echo $_SESSION['user']['name']; ?>
+        </div>
+        <a href="<?php echo url("dashboard"); ?>"> <i class="fa fa-home"></i> Home </a>
+        <a href="<?php echo url("upload"); ?>"> <i class="fa fa-cloud-upload"></i> Upload</a>
+        <a href="<?php echo url("settings"); ?>"> <i class="fa fa-cog"></i> Settings</a>
     </div>
 
     <div class="content">
         <div class="header">
             <div class="panjang"></div>
             <a href="<?php echo url("logout"); ?>" class="logout">
-                Logout
+                Logout <i class="fa fa-sign-out"></i>
             </a>
         </div>
         <div class="isi">
