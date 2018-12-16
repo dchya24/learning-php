@@ -1,12 +1,11 @@
 <?php 
  
-
 namespace Core; 
 
 
 use Core\Connection;
 
-class Model {
+abstract class Model {
 
     // define  a table
     protected $table = "";

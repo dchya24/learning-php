@@ -31,7 +31,7 @@
         unset($_SESSION['message']);
     ?>
     <div class="sidebar">
-        <div class="logo"> Arsip</div>
+        <div class="logo"> <?php echo config('APP_NAME'); ?> </div>
         <div class="user"> 
             <i class="fa fa-user-circle-o fa-3x"></i> <br>
             <?php echo $_SESSION['user']['name']; ?>
@@ -50,13 +50,14 @@
         </div>
         <h1 style="padding: 0.5rem">Upload Arsip </h1>
         <div class="isi">
-            <form method="post" class="form" action="<?php echo base_url() . 'api/post/upload';?>" enctype="multipart/form-data">
-                <label><b>File Name</b></label>    <br>
+            <form method="post" class="form" action="<?php echo base_url() . 'api/post/upload';?>" enctype="multipart/form-data" style="margin: auto;">
+                <label><b style="font-size: 1.2rem;"> File Name</b></label>    <br>
                 <input type="text" name="name" id="name" placeholder="name"> <br>
                 <label for="file" class="btn-success">Input File
-                </label>
+                </label> <br>
                 <input type="file" name="file[]" id="file" accept="image/*,video/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.openxmlformats-officedocument.wordprocessingml.document"> <br>
                 <button type="submit" class="btn-submit" value="upload" name="upload"> Upload</button>
+                <button type="reset" class="btn-submit" value="reset" name="reset"> Reset</button>
             </form>
             <div class="container_img">
                 <p id="text_size"></p>                

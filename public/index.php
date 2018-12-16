@@ -19,7 +19,6 @@ use Symfony\Component\Dotenv\Dotenv;
 $data = explode('public', __DIR__);
 
 
-
 $env = new Dotenv();
 $env->load($data[0] . '.config');
 

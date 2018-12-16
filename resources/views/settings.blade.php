@@ -30,7 +30,7 @@
 </style>
 <body>
     <div class="sidebar">
-        <div class="logo"> Arsip</div>
+        <div class="logo"> <?php echo config('APP_NAME'); ?></div>
         <div class="user"> 
             <i class="fa fa-user-circle-o fa-3x"></i> <br>
             <?php echo $_SESSION['user']['name']; ?>

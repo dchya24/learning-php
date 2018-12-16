@@ -48,7 +48,7 @@
         unset($_SESSION['message']);
     ?>
     <div class="sidebar">
-        <div class="logo"> Arsip</div>
+        <div class="logo"> <?php echo config('APP_NAME'); ?></div>
         <div class="user"> 
             <i class="fa fa-user-circle-o fa-3x"></i> <br>
             <?php echo $_SESSION['user']['name']; ?>
@@ -97,6 +97,8 @@
                             <?php } ?>
                         <div class="container">
                             <?php echo $data['name']; ?>
+                            <br>
+                            Upload Date : <?php echo date('d M Y', strtotime($data['uploaded_at']) ); ?>
                             <br> 
                             download : <a href="<?php echo url('could/'.$data['url']); ?>" download> download</a>
                             <br> <a href="<?php echo url('api/post/delete?id=' .$data['id']); ?>"> Delete</a>
@@ -115,9 +117,7 @@
                     <?php } else {?>
                         <a href="<?php echo $url[0] ."&page=$i"; ?>"><?php echo $i; ?></a>                        
                 <?php } } ?>
-            </div>
-            
-
+            </div>    
         </div>
     </div>
 </body>
